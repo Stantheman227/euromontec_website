@@ -1,130 +1,131 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from "react";
 
 const ExpertiseBanner = () => {
   const [counters, setCounters] = useState({
     projects: 0,
     placements: 0,
     experience: 0,
-    timeSavings: 0
-  })
-  const [hasAnimated, setHasAnimated] = useState(false)
-  const sectionRef = useRef(null)
+    timeSavings: 0,
+  });
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
 
   const targetValues = {
     projects: 500,
     placements: 1200,
     experience: 15,
-    timeSavings: 80
-  }
+    timeSavings: 80,
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true)
-            animateCounters()
+            setHasAnimated(true);
+            animateCounters();
           }
-        })
+        });
       },
       {
-        threshold: 0.3
+        threshold: 0.3,
       }
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [hasAnimated])
+    };
+  }, [hasAnimated]);
 
-  const animateCounters = () => {
-    const duration = 2000 // 2 seconds
-    const steps = 60
-    const stepDuration = duration / steps
-
-    let currentStep = 0
+  const animateCounter = (key, targetValue, duration) => {
+    const steps = 100;
+    const stepDuration = duration / steps;
+    let currentStep = 0;
 
     const animate = () => {
       if (currentStep <= steps) {
-        const progress = currentStep / steps
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+        const progress = currentStep / steps;
+        // Exponential easing function - slows down dramatically as it approaches target
+        const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const currentValue = Math.floor(targetValue * easeOutExpo);
 
-        setCounters({
-          projects: Math.floor(targetValues.projects * easeOutQuart),
-          placements: Math.floor(targetValues.placements * easeOutQuart),
-          experience: Math.floor(targetValues.experience * easeOutQuart),
-          timeSavings: Math.floor(targetValues.timeSavings * easeOutQuart)
-        })
+        setCounters((prev) => ({
+          ...prev,
+          [key]: currentValue,
+        }));
 
-        currentStep++
-        setTimeout(animate, stepDuration)
+        currentStep++;
+        setTimeout(animate, stepDuration);
       } else {
-        // Ensure final values are set
-        setCounters({
-          projects: targetValues.projects,
-          placements: targetValues.placements,
-          experience: targetValues.experience,
-          timeSavings: targetValues.timeSavings
-        })
+        // Ensure final value is set
+        setCounters((prev) => ({
+          ...prev,
+          [key]: targetValue,
+        }));
       }
-    }
+    };
 
-    animate()
-  }
+    animate();
+  };
+
+  const animateCounters = () => {
+    // Each counter finishes at a different time with staggered durations (reduced by 35%)
+    animateCounter("projects", targetValues.projects, 2275);
+    animateCounter("placements", targetValues.placements, 2730);
+    animateCounter("experience", targetValues.experience, 2470);
+    animateCounter("timeSavings", targetValues.timeSavings, 2600);
+  };
 
   const stats = [
     {
       headline: "Erfolgreiche Projekte",
       value: counters.projects,
-      suffix: "+"
+      suffix: "+",
     },
     {
       headline: "Zufrieden Vermittelte",
       value: counters.placements,
-      suffix: "+"
+      suffix: "+",
     },
     {
       headline: "Branchenerfahrung",
       value: counters.experience,
-      suffix: "+"
+      suffix: "+",
     },
     {
       headline: "Zeitersparnis",
       value: counters.timeSavings,
-      suffix: "+"
-    }
-  ]
+      suffix: "+",
+    },
+  ];
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 sm:px-6 lg:px-8 bg-primary-600">
+    <section
+      ref={sectionRef}
+      className="py-8 px-4 sm:px-6 lg:px-8 bg-primary-600"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Expertise</h2>
-        </div>
-        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+              <div className="text-5xl md:text-6xl font-medium tracking-tightest italic text-white flex items-center justify-center gap-3">
+                {stat.value} <span className="text-gray-100 text-3xl text-center">{stat.suffix}</span>
+              </div>
+              <h3 className="text-sm font-thin text-gray-100 uppercase">
                 {stat.headline}
               </h3>
-              <div className="text-5xl md:text-6xl font-bold text-white">
-                {stat.value}{stat.suffix}
-              </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ExpertiseBanner
-
+export default ExpertiseBanner;
