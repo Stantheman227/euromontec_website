@@ -62,7 +62,7 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="services" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
       <div className="">
         <div className="text-left mb-10 md:mb-12 gap-4 md:gap-4 text-center">
           <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6">Wir bieten</p>
