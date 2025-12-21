@@ -1,6 +1,6 @@
-# Employee Leasing Company Demo Website
+# Euromontec Website
 
-A clean, modern demo website for an employee leasing company built with React and Tailwind CSS.
+A clean, modern website for Euromontec employee leasing services built with React and Tailwind CSS.
 
 ## Features
 
@@ -48,4 +48,3 @@ The design focuses on:
 
 - Colors can be adjusted in `tailwind.config.js`
 - Content can be modified in individual component files
-- Company name "TalentBridge" can be replaced throughout

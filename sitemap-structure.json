@@ -1,0 +1,182 @@
+{
+    "pages": [
+      {
+        "name": "Startseite",
+        "sections": [
+          {
+            "title": "Navigationsleiste",
+            "text": ""
+          },
+          {
+            "title": "Hero Header Sektion",
+            "text": "Permanent abgespieltes Hintergrundvideo mit Clips von Handwerkern bei der Arbeit sowie eine kurze, prägnante Überschrift und Call-to-Action."
+          },
+          {
+            "title": "Features Liste Sektion",
+            "text": "Kurze Übersicht über die wichtigsten Vorteile für Unternehmen und Bewerber (z.B. schnelle Vermittlung, geprüfte Fachkräfte, flexible Einsätze)."
+          },
+          {
+            "title": "Dienstleistungen Sektion",
+            "text": "Beschreibung der angebotenen Dienstleistungen rund um die Personalvermittlung im Handwerksbereich."
+          },
+          {
+            "title": "Statistik Sektion",
+            "text": "Erfolgszahlen und Statistiken, die die Stärken und die Reichweite von Euromontec verdeutlichen."
+          },
+          {
+            "title": "Testimonial Sektion",
+            "text": "Erfahrungsberichte und Zitate von zufriedenen Kunden und vermittelten Fachkräften."
+          },
+          {
+            "title": "CTA Sektion",
+            "text": "Aufforderung zur Kontaktaufnahme oder Bewerbung mit klarer Handlungsaufforderung."
+          },
+          {
+            "title": "FAQ Sektion",
+            "text": "Häufig gestellte Fragen rund um die Vermittlung und den Bewerbungsprozess."
+          },
+          {
+            "title": "Footer",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "name": "Über uns",
+        "sections": [
+          {
+            "title": "Navigationsleiste",
+            "text": ""
+          },
+          {
+            "title": "Header Sektion",
+            "text": "Prägnante Überschrift und kurze Einführung, wer Euromontec ist und wofür das Unternehmen steht."
+          },
+          {
+            "title": "Über uns Sektion",
+            "text": "Ausführliche Darstellung der Geschichte, Mission, Werte und Vision von Euromontec."
+          },
+          {
+            "title": "Team Sektion",
+            "text": "Vorstellung des Teams mit Fotos, Namen und Positionen der wichtigsten Mitarbeiter:innen."
+          },
+          {
+            "title": "Zeitleiste Sektion",
+            "text": "Chronologische Darstellung wichtiger Meilensteine und Entwicklungen des Unternehmens."
+          },
+          {
+            "title": "Auszeichnungen Logos Liste Sektion",
+            "text": "Auflistung von Auszeichnungen, Zertifikaten oder besonderen Anerkennungen."
+          },
+          {
+            "title": "Testimonial Sektion",
+            "text": "Zitate oder Erfahrungsberichte, die das Unternehmen und sein Team hervorheben."
+          },
+          {
+            "title": "CTA Sektion",
+            "text": "Handlungsaufforderung zur Kontaktaufnahme oder zum Kennenlernen des Teams."
+          },
+          {
+            "title": "Footer",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "name": "Jobs",
+        "sections": [
+          {
+            "title": "Navigationsleiste",
+            "text": ""
+          },
+          {
+            "title": "Header Sektion",
+            "text": "Überschrift und kurze Einleitung zu aktuellen Jobangeboten, z.B. „Finden Sie Ihren nächsten Handwerkerjob bei Euromontec“."
+          },
+          {
+            "title": "E-Commerce Produkte Liste Sektion",
+            "text": "Liste der verfügbaren Jobs in einem übersichtlichen Karten- oder Listenformat, jeweils mit Jobtitel, Standort, Kurzbeschreibung und Link zu den jeweiligen Job Details."
+          },
+          {
+            "title": "FAQ Sektion",
+            "text": "Antworten auf häufig gestellte Fragen rund um Bewerbungsprozess und die Anforderungen für die Jobs."
+          },
+          {
+            "title": "CTA Sektion",
+            "text": "Handlungsaufforderung zur Bewerbung oder zur Kontaktaufnahme."
+          },
+          {
+            "title": "Footer",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "name": "Job Details",
+        "sections": [
+          {
+            "title": "Navigationsleiste",
+            "text": ""
+          },
+          {
+            "title": "E-Commerce Produkt Header Sektion",
+            "text": "Stellenbezeichnung, Standort, Kurzbeschreibung, wichtige Eckdaten (z.B. Startdatum, Dauer, Vergütung). Bewerben-Button gut sichtbar."
+          },
+          {
+            "title": "E-Commerce Produkt Sektion",
+            "text": "Detaillierte Aufgabenbeschreibung, Anforderungen und Qualifikationen, gewünschte Berufserfahrung, Benefits für Bewerber:innen."
+          },
+          {
+            "title": "Testimonial Sektion",
+            "text": "Erfahrungsbericht eines Mitarbeiters oder einer Mitarbeiterin, der/die eine ähnliche Position über Euromontec gefunden hat."
+          },
+          {
+            "title": "CTA Sektion",
+            "text": "Aufforderung zur Bewerbung mit Button oder Link zum Bewerbungsformular."
+          },
+          {
+            "title": "FAQ Sektion",
+            "text": "Spezifische Fragen zum Bewerbungsprozess oder zur ausgeschriebenen Stelle."
+          },
+          {
+            "title": "Footer",
+            "text": ""
+          }
+        ]
+      },
+      {
+        "name": "Kontakt",
+        "sections": [
+          {
+            "title": "Navigationsleiste",
+            "text": ""
+          },
+          {
+            "title": "Header Sektion",
+            "text": "Kurze Einführung und Kontaktaufforderung (z.B. „Nehmen Sie Kontakt mit uns auf – wir beantworten Ihre Fragen rund um Jobs & Personalvermittlung im Handwerk“)."
+          },
+          {
+            "title": "Kontakt Sektion",
+            "text": "Alle relevanten Kontaktmöglichkeiten (Adresse, Telefonnummer, E-Mail, Social Media, Öffnungszeiten)."
+          },
+          {
+            "title": "Kontaktformular Sektion",
+            "text": "Einfaches Formular für Anfragen, z.B. Name, E-Mail, Nachricht, ggf. Betreffauswahl."
+          },
+          {
+            "title": "Standorte Sektion",
+            "text": "Angabe der Standorte, ggf. mit Karte oder Hinweis, welche Regionen betreut werden."
+          },
+          {
+            "title": "CTA Sektion",
+            "text": "Abschließender Call-to-Action, z.B. „Senden Sie uns Ihre Anfrage – wir melden uns schnellstmöglich bei Ihnen“."
+          },
+          {
+            "title": "Footer",
+            "text": ""
+          }
+        ]
+      }
+    ]
+  }
+  

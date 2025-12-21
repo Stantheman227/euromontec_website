@@ -1,10 +1,11 @@
 import React from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import Benefits from './components/Benefits'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
+import Header from './components/layout/Header'
+import Hero from './components/sections/Hero'
+import Services from './components/sections/Services'
+import ExpertiseBanner from './components/sections/ExpertiseBanner'
+import Benefits from './components/sections/Benefits'
+import CTA from './components/sections/CTA'
+import Footer from './components/layout/Footer'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
+      <ExpertiseBanner />
       <Benefits />
       <CTA />
       <Footer />

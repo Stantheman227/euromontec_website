@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logo from '../../assets/logo-transparent-png.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,9 +9,15 @@ const Header = () => {
     <header className="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Company Name */}
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gray-900">Euromontec</h1>
+            <a href="/" className="cursor-pointer">
+              <img 
+                src={logo} 
+                alt="Euromontec" 
+                className="h-[3.125rem] md:h-[3.75rem] w-auto"
+              />
+            </a>
           </div>
           
           {/* Desktop Navigation */}
