@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const ExpertiseBanner = () => {
+const BannerStatistics = () => {
   const [counters, setCounters] = useState({
     projects: 0,
     placements: 0,
@@ -128,4 +128,5 @@ const ExpertiseBanner = () => {
   );
 };
 
-export default ExpertiseBanner;
+export default BannerStatistics;
+

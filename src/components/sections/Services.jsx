@@ -1,91 +1,58 @@
 import React from 'react'
-import ServiceCard from '../ui/ServiceCard'
 
 const Services = () => {
   const services = [
     {
-      icon: (
-        <div className="w-14 h-14 flex items-center justify-center">
-          <svg className="w-14 h-14 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-      ),
-      title: "Schnelle Vermittlung ohne Umschweife",
-      description: "Innerhalb von Tagen sind qualifizierte Handwerker auf der Baustelle."
+      title: "Personalvermittlung",
+      description: "Wir vermitteln qualifizierte Fachkräfte schnell und zuverlässig. Unser Netzwerk umfasst erfahrene Handwerker und Spezialisten, die genau zu Ihren Anforderungen passen. Von der ersten Anfrage bis zur erfolgreichen Vermittlung begleiten wir Sie professionell."
     },
     {
-      icon: (
-        <div className="w-14 h-14 rounded-full border-2 border-gray-900 flex items-center justify-center">
-          <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        </div>
-      ),
-      title: "Geprüfte Fachkräfte mit echtem Können",
-      description: "Jeder Arbeiter wird überprüft, damit Sie wissen, wer kommt."
+      title: "Temp to Perm",
+      description: "Unsere Temp-to-Perm-Lösung bietet Ihnen die Flexibilität, Mitarbeiter zunächst temporär zu beschäftigen und bei Bedarf in ein festes Arbeitsverhältnis zu überführen. So können Sie die Eignung der Kandidaten in der Praxis prüfen, bevor Sie eine langfristige Entscheidung treffen."
     },
     {
-      icon: (
-        <div className="w-14 h-14 rounded-full border-2 border-gray-900 flex items-center justify-center">
-          <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-        </div>
-      ),
-      title: "Flexibilität für Ihre Projekte",
-      description: "Kurze oder längere Einsätze, ganz wie Sie es brauchen."
-    },
-    {
-      icon: (
-        <div className="w-14 h-14 rounded-full border-2 border-gray-900 flex items-center justify-center">
-          <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-          </svg>
-        </div>
-      ),
-      title: "Sicherheit & Qualität",
-      description: "Höchste Sicherheitsstandards und Qualitätskontrolle bei allen Projekten."
-    },
-    {
-      icon: (
-        <div className="w-14 h-14 rounded-full border-2 border-gray-900 flex items-center justify-center">
-          <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-          </svg>
-        </div>
-      ),
-      title: "Maßgeschneiderte Lösungen",
-      description: "Individuelle Anpassung an Ihre spezifischen Anforderungen und Bedürfnisse."
+      title: "On-Site-Management",
+      description: "Mit unserem On-Site-Management übernehmen wir die komplette Betreuung Ihrer externen Mitarbeiter direkt vor Ort. Wir kümmern uns um alle administrativen Aufgaben, die Koordination und sorgen für reibungslose Abläufe, damit Sie sich auf Ihr Kerngeschäft konzentrieren können."
     }
   ]
 
   return (
-    <section id="services" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
-      <div className="">
-        <div className="text-left mb-10 md:mb-12 gap-4 md:gap-4 text-center">
-          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6">Wir bieten</p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-            Maßgeschneiderte <span className="text-primary-600">Lösungen</span> nach ihren Anforderungen
-          </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className={
-                index < 3 
-                  ? 'md:col-span-2' 
-                  : index === 3 
-                    ? 'md:col-span-3 md:col-start-1' 
-                    : 'md:col-span-3 md:col-start-4'
-              }
-            >
-              <ServiceCard {...service} />
-            </div>
-          ))}
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="space-y-16 md:space-y-24">
+          {services.map((service, index) => {
+            const isEven = index % 2 === 1 // Row 2 (index 1) is even position
+            const isImageLeft = !isEven // Row 1 and 3 have image on left
+            
+            return (
+              <div
+                key={index}
+                className={`flex flex-col ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}
+              >
+                {/* Image */}
+                <div className="w-full lg:w-1/2">
+                  <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+                    <div className="text-center p-8">
+                      <svg className="w-32 h-32 md:w-48 md:h-48 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm text-gray-500 mt-4">Bild: {service.title}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text Content */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                    {service.title}
+                  </h2>
+                  <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
@@ -93,3 +60,4 @@ const Services = () => {
 }
 
 export default Services
+

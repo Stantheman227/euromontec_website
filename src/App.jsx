@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from './components/layout/Header'
 import Hero from './components/sections/Hero'
-import Services from './components/sections/Services'
-import ExpertiseBanner from './components/sections/ExpertiseBanner'
 import Benefits from './components/sections/Benefits'
+import BannerStatistics from './components/sections/BannerStatistics'
+import Services from './components/sections/Services'
 import BannerJumpingman from './components/sections/BannerJumpingman'
+import FAQ from './components/sections/FAQ'
 import Footer from './components/layout/Footer'
 
 function App() {
@@ -12,10 +13,11 @@ function App() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
-      <Services />
-      <ExpertiseBanner />
       <Benefits />
+      <BannerStatistics />
+      <Services />
       <BannerJumpingman />
+      <FAQ />
       <Footer />
     </div>
   )
