@@ -4,7 +4,7 @@ import Hero from './components/sections/Hero'
 import Services from './components/sections/Services'
 import ExpertiseBanner from './components/sections/ExpertiseBanner'
 import Benefits from './components/sections/Benefits'
-import CTA from './components/sections/CTA'
+import BannerJumpingman from './components/sections/BannerJumpingman'
 import Footer from './components/layout/Footer'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Services />
       <ExpertiseBanner />
       <Benefits />
-      <CTA />
+      <BannerJumpingman />
       <Footer />
     </div>
   )
