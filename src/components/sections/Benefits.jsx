@@ -1,7 +1,14 @@
-import React from 'react'
+import { useRef } from 'react'
 import ServiceCard from '../ui/ServiceCard'
+import useIntersectionObserver from '../../hooks/useIntersectionObserver'
 
 const Benefits = () => {
+  const firstRowRef = useRef(null)
+  const secondRowRef = useRef(null)
+  
+  const firstRowVisible = useIntersectionObserver(firstRowRef, { threshold: 0.2 })
+  const secondRowVisible = useIntersectionObserver(secondRowRef, { threshold: 0.2 })
+
   const services = [
     {
       icon: (
@@ -72,20 +79,54 @@ const Benefits = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className={
-                index < 3 
-                  ? 'md:col-span-2' 
-                  : index === 3 
-                    ? 'md:col-span-3 md:col-start-1' 
-                    : 'md:col-span-3 md:col-start-4'
-              }
-            >
-              <ServiceCard {...service} />
-            </div>
-          ))}
+          {/* First Row */}
+          <div ref={firstRowRef} className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
+            {services.slice(0, 3).map((service, index) => {
+              const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300'
+              
+              return (
+                <div 
+                  key={index}
+                  className={`
+                    md:col-span-2
+                    transition-all duration-700 ease-out ${delayClass}
+                    ${firstRowVisible 
+                      ? 'opacity-100 translate-x-0' 
+                      : 'opacity-0 -translate-x-8'
+                    }
+                  `}
+                >
+                  <ServiceCard {...service} />
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Second Row */}
+          <div ref={secondRowRef} className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
+            {services.slice(3).map((service, index) => {
+              const delayClass = index === 0 ? 'delay-100' : 'delay-200'
+              const colSpanClass = index === 0 
+                ? 'md:col-span-3 md:col-start-1' 
+                : 'md:col-span-3 md:col-start-4'
+              
+              return (
+                <div 
+                  key={index + 3}
+                  className={`
+                    ${colSpanClass}
+                    transition-all duration-700 ease-out ${delayClass}
+                    ${secondRowVisible 
+                      ? 'opacity-100 translate-x-0' 
+                      : 'opacity-0 translate-x-8'
+                    }
+                  `}
+                >
+                  <ServiceCard {...service} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
