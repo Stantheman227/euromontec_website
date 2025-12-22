@@ -14,7 +14,7 @@ const Services = () => {
 
   const services = [
     {
-      title: "Personalvermittlung",
+      title: "Arbeitnehmerüberlassung",
       description: "Wir vermitteln qualifizierte Fachkräfte schnell und zuverlässig. Unser Netzwerk umfasst erfahrene Handwerker und Spezialisten, die genau zu Ihren Anforderungen passen. Von der ersten Anfrage bis zur erfolgreichen Vermittlung begleiten wir Sie professionell.",
       image: image1
     },
