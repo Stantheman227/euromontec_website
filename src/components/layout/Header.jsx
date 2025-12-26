@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const menuItems = [
   { 
@@ -9,194 +9,192 @@ const menuItems = [
     submenu: [
       { itemName: 'Arbeitnehmerüberlassung', route: '/arbeitnehmeruberlassung', htmlTag: 'Link' },
       { itemName: 'Personalvermittlung', route: '/personalvermittlung', htmlTag: 'Link' },
-      { itemName: 'Temp-to-Perm', route: '/temp-to-perm', htmlTag: 'Link' }
+      { itemName: 'Arbeitnehmerüberlassung mit Übernahmeoption', route: '/uebernahmeoption', htmlTag: 'Link' }
     ]
   },
-  { itemName: 'Über uns', route: '#about', htmlTag: 'a' },
-  { itemName: 'Kontakt', route: '/kontakt', htmlTag: 'Link' },
-  { itemName: 'Für Unternehmen', route: '#', htmlTag: 'button' }
+  { itemName: 'Über uns', route: '/ueber-uns', htmlTag: 'Link' },
+  { itemName: 'Kontakt', route: '/kontakt', htmlTag: 'Link' }
 ]
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [hoveredDropdown, setHoveredDropdown] = useState(null)
-  const [expandedMobileDropdown, setExpandedMobileDropdown] = useState(null)
-  const location = useLocation()
-  const navigate = useNavigate()
+  const [openDropdown, setOpenDropdown] = useState(null)
 
-  const handleServicesClick = (e) => {
-    e.preventDefault()
-    if (location.pathname === '/') {
-      // We're on home, scroll to services section
-      const servicesSection = document.getElementById('services')
-      if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: 'smooth' })
-      }
-    } else {
-      // We're on another route, navigate to home first
-      navigate('/')
-      setTimeout(() => {
-        const servicesSection = document.getElementById('services')
-        if (servicesSection) {
-          servicesSection.scrollIntoView({ behavior: 'smooth' })
-        }
-      }, 100)
-
+  const handleMouseEnter = (index) => {
+    if (menuItems[index].submenu) {
+      setOpenDropdown(index)
     }
   }
 
-  const renderMenuItem = (item, index, isMobile = false) => {
-    const hasSubmenu = item.submenu && item.submenu.length > 0
-    const isDropdownOpen = isMobile 
-      ? expandedMobileDropdown === index
-      : hoveredDropdown === index
+  const handleMouseLeave = () => {
+    setOpenDropdown(null)
+  }
 
+  const renderMenuItem = (item, index, isMobile = false) => {
     const baseClasses = isMobile 
       ? 'block text-gray-700 hover:text-primary-600'
-      : 'text-gray-700 hover:text-primary-600 transition'
+      : 'text-gray-700 hover:text-primary-600 transition relative'
     
-    const renderSubmenuItem = (subItem) => {
+    const hasSubmenu = item.submenu && item.submenu.length > 0
+    const isDropdownOpen = openDropdown === index
+
+    const renderSubmenuItem = (subItem, subIndex, totalItems) => {
+      const isLastItem = subIndex === totalItems - 1
+      const separatorClass = isLastItem ? '' : 'border-b border-gray-200'
+      
       switch (subItem.htmlTag) {
         case 'a':
           return (
-            <a key={subItem.itemName} href={subItem.route} className={baseClasses}>
-              {subItem.itemName}
-            </a>
-          )
-        case 'Link':
-          return (
-            <Link key={subItem.itemName} to={subItem.route} className={baseClasses}>
-              {subItem.itemName}
-            </Link>
-          )
-        case 'button':
-          const buttonClasses = isMobile
-            ? 'w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700'
-            : 'bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition'
-          return (
-            <button key={subItem.itemName} className={buttonClasses}>
-              {subItem.itemName}
-            </button>
-          )
-        default:
-          return null
-      }
-    }
-
-    const renderMainItem = () => {
-      // Special handling for "Unsere Leistungen" menu item
-      if (item.itemName === 'Unsere Leistungen') {
-        return (
-          <a 
-            href={item.route} 
-            className={baseClasses}
-            onClick={handleServicesClick}
-          >
-            {item.itemName}
-          </a>
-        )
-      }
-
-      switch (item.htmlTag) {
-        case 'a':
-          return (
-            <a href={item.route} className={baseClasses}>
-              {item.itemName}
-            </a>
-          )
-        case 'Link':
-          return (
-            <Link to={item.route} className={baseClasses}>
-              {item.itemName}
-            </Link>
-          )
-        case 'button':
-          const buttonClasses = isMobile
-            ? 'w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700'
-            : 'bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition'
-          return (
-            <button className={buttonClasses}>
-              {item.itemName}
-            </button>
-          )
-        default:
-          return null
-      }
-    }
-
-    // If item has submenu, wrap in dropdown container
-    if (hasSubmenu) {
-      if (isMobile) {
-        return (
-          <div key={item.itemName} className="space-y-2">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault()
-                // Special handling for "Unsere Leistungen" - don't expand dropdown, handle click
-                if (item.itemName === 'Unsere Leistungen') {
-                  handleServicesClick(e)
-                  return
-                }
-                setExpandedMobileDropdown(expandedMobileDropdown === index ? null : index)
-              }}
+            <a 
+              key={subItem.itemName} 
+              href={subItem.route} 
+              className={`flex items-start px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition ${separatorClass}`}
             >
-              <span className={baseClasses}>{item.itemName}</span>
-              <svg 
-                className={`w-4 h-4 text-gray-700 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-            {isDropdownOpen && (
-              <div className="pl-4 space-y-2 border-l-2 border-gray-200">
-                {item.submenu.map(subItem => renderSubmenuItem(subItem))}
-              </div>
-            )}
-          </div>
-        )
-      } else {
+              <span className="mr-2 flex-shrink-0 mt-0.5">•</span>
+              <span className="flex-1">{subItem.itemName}</span>
+            </a>
+          )
+        case 'Link':
+          return (
+            <Link 
+              key={subItem.itemName} 
+              to={subItem.route} 
+              className={`flex items-start px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition ${separatorClass}`}
+            >
+              <span className="mr-2 flex-shrink-0 mt-0.5">•</span>
+              <span className="flex-1">{subItem.itemName}</span>
+            </Link>
+          )
+        default:
+          return null
+      }
+    }
+    
+    switch (item.htmlTag) {
+      case 'a':
         return (
           <div 
             key={item.itemName}
-            className="relative"
-            onMouseEnter={() => setHoveredDropdown(index)}
-            onMouseLeave={() => setHoveredDropdown(null)}
+            className="relative h-full flex items-center"
+            onMouseEnter={() => !isMobile && handleMouseEnter(index)}
+            onMouseLeave={() => !isMobile && handleMouseLeave()}
           >
-            <div className="flex items-center space-x-1">
-              {renderMainItem()}
-              <svg 
-                className="w-4 h-4 text-gray-700"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-            {isDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                {item.submenu.map(subItem => (
-                  <div key={subItem.itemName} className="px-4 py-2 hover:bg-gray-50">
-                    {renderSubmenuItem(subItem)}
+            <a 
+              href={hasSubmenu ? '#' : item.route}
+              onClick={(e) => {
+                if (hasSubmenu) {
+                  e.preventDefault()
+                }
+              }}
+              className={`${baseClasses} flex items-center gap-1 h-full`}
+            >
+              {item.itemName}
+              {hasSubmenu && !isMobile && (
+                <svg 
+                  className="w-4 h-4 transition-transform"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </a>
+            {hasSubmenu && !isMobile && (
+              <>
+                {/* Invisible spacer to maintain hover area between header and dropdown */}
+                <div 
+                  className={`absolute left-0 top-full w-56 h-2 z-40 transition-opacity duration-500 ${
+                    isDropdownOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                />
+                {/* Dropdown menu */}
+                <div 
+                  className={`absolute left-0 top-[calc(100%)] w-56 bg-white rounded-b-lg shadow-lg border border-gray-100 overflow-hidden z-50 transition-all duration-500 ease ${
+                    isDropdownOpen 
+                      ? 'opacity-100 max-h-[200px] pointer-events-auto' 
+                      : 'opacity-0 max-h-0 pointer-events-none'
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="py-2">
+                    {item.submenu.map((subItem, subIndex) => renderSubmenuItem(subItem, subIndex, item.submenu.length))}
                   </div>
-                ))}
-              </div>
+                </div>
+              </>
             )}
           </div>
         )
-      }
+      case 'Link':
+        return (
+          <div 
+            key={item.itemName}
+            className="relative h-full flex items-center"
+            onMouseEnter={() => !isMobile && handleMouseEnter(index)}
+            onMouseLeave={() => !isMobile && handleMouseLeave()}
+          >
+            <Link 
+              to={hasSubmenu ? '#' : item.route}
+              onClick={(e) => {
+                if (hasSubmenu) {
+                  e.preventDefault()
+                }
+              }}
+              className={`${baseClasses} flex items-center gap-1 h-full`}
+            >
+              {item.itemName}
+              {hasSubmenu && !isMobile && (
+                <svg 
+                  className="w-4 h-4 transition-transform"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              )}
+            </Link>
+            {hasSubmenu && !isMobile && (
+              <>
+                {/* Invisible spacer to maintain hover area between header and dropdown */}
+                <div 
+                  className={`absolute left-0 top-full w-56 h-2 z-40 transition-opacity duration-500 ${
+                    isDropdownOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                />
+                {/* Dropdown menu */}
+                <div 
+                  className={`absolute left-0 top-[calc(100%+0.5rem)] w-56 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden z-50 transition-all duration-500 ease ${
+                    isDropdownOpen 
+                      ? 'opacity-100 max-h-[200px] pointer-events-auto' 
+                      : 'opacity-0 max-h-0 pointer-events-none'
+                  }`}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="py-2">
+                    {item.submenu.map((subItem, subIndex) => renderSubmenuItem(subItem, subIndex, item.submenu.length))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+        )
+      case 'button':
+        const buttonClasses = isMobile
+          ? 'w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700'
+          : 'bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition'
+        return (
+          <button key={item.itemName} className={buttonClasses}>
+            {item.itemName}
+          </button>
+        )
+      default:
+        return null
     }
-
-    // Regular menu item without submenu
-    return (
-      <div key={item.itemName}>
-        {renderMainItem()}
-      </div>
-    )
   }
 
   return (
@@ -207,10 +205,10 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="cursor-pointer">
               <div className="relative">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 tracking-tight italic">
+                <p className="text-2xl md:text-3xl text-gray-900 tracking-tight italic">
                   <span className="font-bold text-primary-600">euro</span>montec
-                </h1>
-                <p className="absolute top-[55%] right-0 mt-1 font-mailman text-gray-900 text-lg sm:text-xl md:text-2xl">
+                </p>
+                <p className="absolute top-[55%] right-0 mt-1 font-mailman text-gray-900 text-lg md:text-xl">
                   Personal
                 </p>
               </div>
@@ -218,7 +216,7 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex h-full items-center space-x-8">
             {menuItems.map((item, index) => renderMenuItem(item, index, false))}
           </div>
 

@@ -21,7 +21,7 @@ const ThankYou = () => {
           </svg>
         </div>
         
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
           Vielen Dank!
         </h1>
         

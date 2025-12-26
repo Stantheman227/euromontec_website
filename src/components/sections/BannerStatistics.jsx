@@ -57,7 +57,7 @@ const BannerStatistics = () => {
       <div className="max-w-7xl mx-auto">
         <div ref={animationRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
-            const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : index === 2 ? 'delay-300' : 'delay-400'
+            const delayClass = index === 0 ? 'delay-50' : index === 1 ? 'delay-100' : index === 2 ? 'delay-150' : 'delay-200'
             
             return (
               <div 
@@ -72,8 +72,8 @@ const BannerStatistics = () => {
                 `}
                 style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
               >
-                <div className="text-5xl md:text-6xl font-medium tracking-tightest italic text-white flex items-center justify-center gap-3 min-h-[4rem] md:min-h-[5rem]">
-                  <span className="tabular-nums">{stat.value}</span> <span className="text-gray-100 text-3xl text-center">{stat.suffix}</span>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tightest italic text-white flex items-center justify-center gap-3 min-h-[4rem] md:min-h-[5rem]">
+                  <span className="tabular-nums">{stat.value}</span> <span className="text-gray-100 text-2xl md:text-3xl lg:text-4xl text-center">{stat.suffix}</span>
                 </div>
                 <h3 className="text-sm font-thin text-gray-100 uppercase">
                   {stat.headline}

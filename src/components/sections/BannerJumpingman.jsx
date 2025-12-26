@@ -17,7 +17,7 @@ const BannerJumpingman = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
           Bereit für den <span className="text-primary-600">Wandel</span> Ihrer
           Belegschaft?
         </h2>

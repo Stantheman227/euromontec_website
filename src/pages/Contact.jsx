@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Kontakt
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -18,7 +18,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 mb-6">
               Kontaktinformationen
             </h2>
             <div className="space-y-4 text-gray-700">
@@ -43,7 +43,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 mb-6">
               Nachricht senden
             </h2>
             <ContactForm />

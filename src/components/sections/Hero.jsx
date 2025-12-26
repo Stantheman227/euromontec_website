@@ -23,10 +23,10 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ">
         {/* Company Name */}
         <div className="relative mb-16">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl text-white tracking-tight italic">
+          <p className="text-6xl sm:text-7xl md:text-8xl text-white tracking-tight italic">
             <span className="font-bold text-primary-600">euro</span>montec
-          </h1>
-          <p className="absolute top-[55%] right-0 mt-2 font-mailman text-white text-[4.5rem]">
+          </p>
+          <p className="absolute top-[55%] right-0 mt-2 font-mailman text-white text-[3rem] sm:text-[3.5rem] md:text-[4.5rem]">
             Personal
           </p>
         </div>

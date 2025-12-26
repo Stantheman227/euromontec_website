@@ -69,20 +69,18 @@ const Benefits = () => {
   ]
 
   return (
-    <section id="benefits" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
+    <section id="benefits" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-100 overflow-x-hidden">
       <div className="">
         <div className="text-left mb-10 md:mb-12 gap-4 md:gap-4 text-center">
-          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6">Wir bieten</p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-            Maßgeschneiderte <span className="text-primary-600">Lösungen</span> nach ihren Anforderungen
-          </h2>
+          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6"> Für Ihren Erfolg </p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">Wir sorgen für Ihre <span className="text-primary-600">Zufriedenheit</span> mit diesen <span className="text-primary-600">Vorteilen</span></h2> 
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
           {/* First Row */}
           <div ref={firstRowRef} className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
             {services.slice(0, 3).map((service, index) => {
-              const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300'
+              const delayClass = index === 0 ? 'delay-50' : index === 1 ? 'delay-100' : 'delay-150'
               
               return (
                 <div 
@@ -106,7 +104,7 @@ const Benefits = () => {
           {/* Second Row */}
           <div ref={secondRowRef} className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-4">
             {services.slice(3).map((service, index) => {
-              const delayClass = index === 0 ? 'delay-100' : 'delay-200'
+              const delayClass = index === 0 ? 'delay-50' : 'delay-100'
               const colSpanClass = index === 0 
                 ? 'md:col-span-3 md:col-start-1' 
                 : 'md:col-span-3 md:col-start-4'

@@ -27,6 +27,15 @@ const useCounterAnimation = (targetValues, options = {}) => {
   useEffect(() => {
     if (hasAnimated) return
 
+    // Check if element is already scrolled past on mount
+    const checkInitialPosition = (element) => {
+      if (!element) return false
+      const rect = element.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      // Element is above viewport (already scrolled past)
+      return rect.top < viewportHeight * (1 - threshold)
+    }
+
     const animateCounter = (key, targetValue, duration) => {
       const steps = 100
       const stepDuration = duration / steps
@@ -80,26 +89,45 @@ const useCounterAnimation = (targetValues, options = {}) => {
       })
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true)
-            animateCounters()
-          }
-        })
-      },
-      {
-        threshold,
-      }
-    )
+    // Wait for DOM to be ready and layout to be calculated
+    let observer = null
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const checkAfterLayout = () => {
+      // If already scrolled past, immediately set counters to target values
+      if (sectionRef.current && checkInitialPosition(sectionRef.current)) {
+        setHasAnimated(true)
+        setCounters(targetValues)
+        return // Already scrolled past, no need to animate or observe
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !hasAnimated) {
+              setHasAnimated(true)
+              animateCounters()
+            }
+          })
+        },
+        {
+          threshold,
+        }
+      )
+
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current)
+      }
     }
 
+    // Use requestAnimationFrame to ensure DOM is ready and layout is calculated
+    const rafId = requestAnimationFrame(() => {
+      // Double RAF to ensure layout is complete
+      requestAnimationFrame(checkAfterLayout)
+    })
+
     return () => {
-      if (sectionRef.current) {
+      cancelAnimationFrame(rafId)
+      if (observer && sectionRef.current) {
         observer.unobserve(sectionRef.current)
       }
     }

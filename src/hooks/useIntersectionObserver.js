@@ -24,70 +24,113 @@ const useIntersectionObserver = (refs, options = {}) => {
   )
 
   useEffect(() => {
-    // Handle single ref
-    if (!isMultiple) {
-      if (!refs?.current) return
+    // Helper function to check if element is already scrolled past
+    const checkInitialPosition = (element) => {
+      if (!element) return false
+      const rect = element.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      // Element is above viewport (already scrolled past)
+      return rect.top < viewportHeight * (1 - threshold)
+    }
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleState(true)
-              if (once) {
-                observer.unobserve(entry.target)
+    // Wait for DOM to be ready and layout to be calculated
+    let cleanupFn = null
+
+    const checkAfterLayout = () => {
+      // Handle single ref
+      if (!isMultiple) {
+        if (!refs?.current) return
+
+        // Check initial position after layout
+        if (checkInitialPosition(refs.current)) {
+          setVisibleState(true)
+          return // Element already scrolled past, no need to observe
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleState(true)
+                if (once) {
+                  observer.unobserve(entry.target)
+                }
               }
-            }
-          })
-        },
-        {
-          threshold,
-          rootMargin,
-        }
-      )
+            })
+          },
+          {
+            threshold,
+            rootMargin,
+          }
+        )
 
-      observer.observe(refs.current)
+        observer.observe(refs.current)
 
-      return () => {
-        if (refs.current) {
-          observer.unobserve(refs.current)
+        cleanupFn = () => {
+          if (refs.current) {
+            observer.unobserve(refs.current)
+          }
         }
+        return
+      }
+
+      // Handle multiple refs
+      const observers = refs.map((ref, index) => {
+        if (!ref?.current) return null
+
+        // Check initial position after layout
+        if (checkInitialPosition(ref.current)) {
+          setVisibleState((prev) => ({
+            ...prev,
+            [index]: true,
+          }))
+          return null // Element already scrolled past, no need to observe
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleState((prev) => ({
+                  ...prev,
+                  [index]: true,
+                }))
+                if (once) {
+                  observer.unobserve(entry.target)
+                }
+              }
+            })
+          },
+          {
+            threshold,
+            rootMargin,
+          }
+        )
+
+        observer.observe(ref.current)
+        return observer
+      })
+
+      cleanupFn = () => {
+        observers.forEach((observer, index) => {
+          if (observer && refs[index]?.current) {
+            observer.unobserve(refs[index].current)
+          }
+        })
       }
     }
 
-    // Handle multiple refs
-    const observers = refs.map((ref, index) => {
-      if (!ref?.current) return null
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleState((prev) => ({
-                ...prev,
-                [index]: true,
-              }))
-              if (once) {
-                observer.unobserve(entry.target)
-              }
-            }
-          })
-        },
-        {
-          threshold,
-          rootMargin,
-        }
-      )
-
-      observer.observe(ref.current)
-      return observer
+    // Use requestAnimationFrame to ensure DOM is ready and layout is calculated
+    const rafId = requestAnimationFrame(() => {
+      // Double RAF to ensure layout is complete
+      requestAnimationFrame(checkAfterLayout)
     })
 
     return () => {
-      observers.forEach((observer, index) => {
-        if (observer && refs[index]?.current) {
-          observer.unobserve(refs[index].current)
-        }
-      })
+      cancelAnimationFrame(rafId)
+      if (cleanupFn) {
+        cleanupFn()
+      }
     }
   }, [refs, threshold, rootMargin, once, isMultiple])
 

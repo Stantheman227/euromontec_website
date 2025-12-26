@@ -3,7 +3,7 @@ import React from 'react'
 const ServiceCard = ({ icon, title, description }) => (
   <div className="bg-white p-5 md:p-6 text-left h-full rounded-lg relative overflow-hidden min-h-[200px] md:min-h-[220px]">
     {/* Blue stripes in top-right corner */}
-    <div className="absolute top-0 right-0 rotate-[-90deg] w-24 h-24">
+    <div className="absolute top-0 right-0 rotate-[-90deg] w-24 h-24 overflow-hidden">
       <div className="absolute top-0 right-0 w-36 h-1.5  bg-primary-600 transform origin-top-right rotate-[-45deg]"></div>
       <div className="absolute top-4 right-0 w-36 h-1.5 bg-primary-600 transform origin-top-right rotate-[-45deg]"></div>
       <div className="absolute top-8 right-0 w-36 h-1.5 bg-primary-600 transform origin-top-right rotate-[-45deg]"></div>
