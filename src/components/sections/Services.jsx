@@ -19,13 +19,13 @@ const Services = () => {
       image: image1
     },
     {
-      title: "Temp to Perm",
-      description: "Unsere Temp-to-Perm-Lösung bietet Ihnen die Flexibilität, Mitarbeiter zunächst temporär zu beschäftigen und bei Bedarf in ein festes Arbeitsverhältnis zu überführen. So können Sie die Eignung der Kandidaten in der Praxis prüfen, bevor Sie eine langfristige Entscheidung treffen.",
+      title: "Aus kurz wird lang",
+      description: "Wir bieten Ihnen die Flexibilität, Mitarbeiter zunächst temporär zu beschäftigen und bei Bedarf in ein festes Arbeitsverhältnis zu überführen. So können Sie die Eignung der Kandidaten in der Praxis prüfen, bevor Sie eine langfristige Entscheidung treffen.",
       image: image8
     },
     {
-      title: "On-Site-Management",
-      description: "Mit unserem On-Site-Management übernehmen wir die komplette Betreuung Ihrer externen Mitarbeiter direkt vor Ort. Wir kümmern uns um alle administrativen Aufgaben, die Koordination und sorgen für reibungslose Abläufe, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.",
+      title: "Personalvermittlung",
+      description: "Wir vermitteln qualifizierte Fachkräfte schnell und zuverlässig. Unser Netzwerk umfasst erfahrene Handwerker und Spezialisten, die genau zu Ihren Anforderungen passen. Von der ersten Anfrage bis zur erfolgreichen Vermittlung begleiten wir Sie professionell.",
       image: image3
     }
   ]
@@ -75,7 +75,7 @@ const Services = () => {
                     : `opacity-0 ${isImageLeft ? 'translate-x-8' : '-translate-x-8'}`
                   }
                 `}>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 overflow-hidden">
                     {service.title}
                   </h2>
                   <p className="text-lg md:text-xl text-gray-600 leading-relaxed">

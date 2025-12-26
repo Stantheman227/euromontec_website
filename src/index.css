@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Unisans:wght@400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Mailman';
+  src: url('./assets/fonts/mailman-font/misc/Mailman-1f3c.woff2') format('woff2'),
+       url('./assets/fonts/mailman-font/MailmanRegular-nA3m4.otf') format('opentype'),
+       url('./assets/fonts/mailman-font/MailmanRegular-1j8VM.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

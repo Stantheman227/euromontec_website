@@ -1,63 +1,223 @@
 import React, { useState } from 'react'
-import logo from '../../assets/logo-transparent-png.png'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import logo from '../../assets/images/logos/euromontec_combination-mark_black.webp'
+
+const menuItems = [
+  { 
+    itemName: 'Unsere Leistungen', 
+    route: '#', 
+    htmlTag: 'a',
+    submenu: [
+      { itemName: 'Arbeitnehmerüberlassung', route: '/arbeitnehmeruberlassung', htmlTag: 'Link' },
+      { itemName: 'Personalvermittlung', route: '/personalvermittlung', htmlTag: 'Link' },
+      { itemName: 'Temp-to-Perm', route: '/temp-to-perm', htmlTag: 'Link' }
+    ]
+  },
+  { itemName: 'Über uns', route: '#about', htmlTag: 'a' },
+  { itemName: 'Kontakt', route: '/kontakt', htmlTag: 'Link' },
+  { itemName: 'Für Unternehmen', route: '#', htmlTag: 'button' }
+]
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [hoveredDropdown, setHoveredDropdown] = useState(null)
+  const [expandedMobileDropdown, setExpandedMobileDropdown] = useState(null)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleServicesClick = (e) => {
+    e.preventDefault()
+    if (location.pathname === '/') {
+      // We're on home, scroll to services section
+      const servicesSection = document.getElementById('services')
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // We're on another route, navigate to home first
+      navigate('/')
+      setTimeout(() => {
+        const servicesSection = document.getElementById('services')
+        if (servicesSection) {
+          servicesSection.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+
+    }
+  }
+
+  const renderMenuItem = (item, index, isMobile = false) => {
+    const hasSubmenu = item.submenu && item.submenu.length > 0
+    const isDropdownOpen = isMobile 
+      ? expandedMobileDropdown === index
+      : hoveredDropdown === index
+
+    const baseClasses = isMobile 
+      ? 'block text-gray-700 hover:text-primary-600'
+      : 'text-gray-700 hover:text-primary-600 transition'
+    
+    const renderSubmenuItem = (subItem) => {
+      switch (subItem.htmlTag) {
+        case 'a':
+          return (
+            <a key={subItem.itemName} href={subItem.route} className={baseClasses}>
+              {subItem.itemName}
+            </a>
+          )
+        case 'Link':
+          return (
+            <Link key={subItem.itemName} to={subItem.route} className={baseClasses}>
+              {subItem.itemName}
+            </Link>
+          )
+        case 'button':
+          const buttonClasses = isMobile
+            ? 'w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700'
+            : 'bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition'
+          return (
+            <button key={subItem.itemName} className={buttonClasses}>
+              {subItem.itemName}
+            </button>
+          )
+        default:
+          return null
+      }
+    }
+
+    const renderMainItem = () => {
+      // Special handling for "Unsere Leistungen" menu item
+      if (item.itemName === 'Unsere Leistungen') {
+        return (
+          <a 
+            href={item.route} 
+            className={baseClasses}
+            onClick={handleServicesClick}
+          >
+            {item.itemName}
+          </a>
+        )
+      }
+
+      switch (item.htmlTag) {
+        case 'a':
+          return (
+            <a href={item.route} className={baseClasses}>
+              {item.itemName}
+            </a>
+          )
+        case 'Link':
+          return (
+            <Link to={item.route} className={baseClasses}>
+              {item.itemName}
+            </Link>
+          )
+        case 'button':
+          const buttonClasses = isMobile
+            ? 'w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700'
+            : 'bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition'
+          return (
+            <button className={buttonClasses}>
+              {item.itemName}
+            </button>
+          )
+        default:
+          return null
+      }
+    }
+
+    // If item has submenu, wrap in dropdown container
+    if (hasSubmenu) {
+      if (isMobile) {
+        return (
+          <div key={item.itemName} className="space-y-2">
+            <div 
+              className="flex items-center justify-between cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                // Special handling for "Unsere Leistungen" - don't expand dropdown, handle click
+                if (item.itemName === 'Unsere Leistungen') {
+                  handleServicesClick(e)
+                  return
+                }
+                setExpandedMobileDropdown(expandedMobileDropdown === index ? null : index)
+              }}
+            >
+              <span className={baseClasses}>{item.itemName}</span>
+              <svg 
+                className={`w-4 h-4 text-gray-700 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            {isDropdownOpen && (
+              <div className="pl-4 space-y-2 border-l-2 border-gray-200">
+                {item.submenu.map(subItem => renderSubmenuItem(subItem))}
+              </div>
+            )}
+          </div>
+        )
+      } else {
+        return (
+          <div 
+            key={item.itemName}
+            className="relative"
+            onMouseEnter={() => setHoveredDropdown(index)}
+            onMouseLeave={() => setHoveredDropdown(null)}
+          >
+            <div className="flex items-center space-x-1">
+              {renderMainItem()}
+              <svg 
+                className="w-4 h-4 text-gray-700"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                {item.submenu.map(subItem => (
+                  <div key={subItem.itemName} className="px-4 py-2 hover:bg-gray-50">
+                    {renderSubmenuItem(subItem)}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      }
+    }
+
+    // Regular menu item without submenu
+    return (
+      <div key={item.itemName}>
+        {renderMainItem()}
+      </div>
+    )
+  }
 
   return (
-    <header className="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+    <header className="fixed w-full bg-white backdrop-blur-sm shadow-sm z-50 border-b-2 border-black">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="cursor-pointer">
+            <Link to="/" className="cursor-pointer">
               <img 
                 src={logo} 
                 alt="Euromontec" 
                 className="h-[3.125rem] md:h-[3.75rem] w-auto"
               />
-            </a>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {/* Für Bewerber - Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <button className="text-gray-700 hover:text-primary-600 transition flex items-center gap-1">
-                Für Bewerber
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {/* Dropdown Menu */}
-              {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
-                  <a href="#jobs" className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition">
-                    Stellenangebote
-                  </a>
-                  <a href="#bewerbung" className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition">
-                    Bewerbung
-                  </a>
-                  <a href="#karriere" className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition">
-                    Karriere
-                  </a>
-                </div>
-              )}
-            </div>
-            
-            <a href="#fachbereiche" className="text-gray-700 hover:text-primary-600 transition">Fachbereiche</a>
-            <a href="#about" className="text-gray-700 hover:text-primary-600 transition">Über uns</a>
-            <a href="#kontakt" className="text-gray-700 hover:text-primary-600 transition">Kontakt</a>
-            
-            <button className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition">
-              Für Unternehmen
-            </button>
+            {menuItems.map((item, index) => renderMenuItem(item, index, false))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,13 +234,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-3">
-            <a href="#bewerber" className="block text-gray-700 hover:text-primary-600">Für Bewerber</a>
-            <a href="#fachbereiche" className="block text-gray-700 hover:text-primary-600">Fachbereiche</a>
-            <a href="#about" className="block text-gray-700 hover:text-primary-600">Über uns</a>
-            <a href="#kontakt" className="block text-gray-700 hover:text-primary-600">Kontakt</a>
-            <button className="w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700">
-              Für Unternehmen
-            </button>
+            {menuItems.map((item, index) => renderMenuItem(item, index, true))}
           </div>
         )}
       </nav>

@@ -25,7 +25,10 @@ const BannerJumpingman = () => {
           Kontaktieren Sie unser Team noch heute für eine kostenlose Beratung.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition shadow-lg">
+          <button 
+            onClick={() => window.location.href = 'mailto:info@euromontec.de?subject=Anfrage%20zur%20Arbeitnehmer%C3%BCberlassung'} 
+            className="bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition shadow-lg"
+          >
             Termin vereinbaren
           </button>
           <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition">

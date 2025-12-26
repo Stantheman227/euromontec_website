@@ -1,5 +1,5 @@
-import React from 'react'
-import heroVideo from '../../assets/Euromontec_video_1.mp4'
+import React from "react";
+import heroVideo from "../../assets/Euromontec_video_1.mp4";
 
 const Hero = () => {
   return (
@@ -20,24 +20,58 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ">
         {/* Company Name */}
-        <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold text-white mb-12 tracking-tight uppercase italic">
-          Euromontec
-        </h1>
+        <div className="relative mb-16">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl text-white tracking-tight italic">
+            <span className="font-bold text-primary-600">euro</span>montec
+          </h1>
+          <p className="absolute top-[55%] right-0 mt-2 font-mailman text-white text-[4.5rem]">
+            Personal
+          </p>
+        </div>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button className="bg-primary-600 text-white px-10 py-5 rounded-lg text-xl font-semibold hover:bg-primary-700 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100 ">
+          <button className="bg-white text-gray-900 px-10 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100">
             Für Jobsuchende
           </button>
-          <button className="bg-white text-gray-900 px-10 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100">
+          <button className="bg-primary-600 text-white px-10 py-5 rounded-lg text-xl font-semibold hover:bg-primary-700 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100 ">
             Für Unternehmen
+          </button>
+        </div>
+
+        {/* Scroll Down Arrow */}
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => {
+              const benefitsSection = document.getElementById("benefits");
+              if (benefitsSection) {
+                benefitsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="text-white hover:text-primary-600 cursor-pointer"
+            aria-label="Scroll to next section"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-10"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+              />
+            </svg>
           </button>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
