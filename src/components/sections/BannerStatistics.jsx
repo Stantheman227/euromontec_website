@@ -66,13 +66,14 @@ const BannerStatistics = () => {
                   text-center
                   transition-all duration-700 ease-out ${delayClass}
                   ${isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
+                    ? 'opacity-100 translate-y-0 visible' 
+                    : 'opacity-0 translate-y-8 invisible'
                   }
                 `}
+                style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
               >
-                <div className="text-5xl md:text-6xl font-medium tracking-tightest italic text-white flex items-center justify-center gap-3">
-                  {stat.value} <span className="text-gray-100 text-3xl text-center">{stat.suffix}</span>
+                <div className="text-5xl md:text-6xl font-medium tracking-tightest italic text-white flex items-center justify-center gap-3 min-h-[4rem] md:min-h-[5rem]">
+                  <span className="tabular-nums">{stat.value}</span> <span className="text-gray-100 text-3xl text-center">{stat.suffix}</span>
                 </div>
                 <h3 className="text-sm font-thin text-gray-100 uppercase">
                   {stat.headline}

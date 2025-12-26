@@ -47,34 +47,41 @@ const Services = () => {
                 className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center"
               >
                 {/* Image */}
-                <div className={`
-                  w-full lg:w-1/2 
-                  ${isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}
-                  transition-all duration-700 ease-out ${delayClass}
-                  ${isVisible 
-                    ? 'opacity-100 translate-x-0' 
-                    : `opacity-0 ${isImageLeft ? '-translate-x-8' : 'translate-x-8'}`
-                  }
-                `}>
+                <div 
+                  className={`
+                    w-full lg:w-1/2 
+                    ${isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}
+                    transition-all duration-700 ease-out ${delayClass}
+                    ${isVisible 
+                      ? 'opacity-100 translate-x-0 visible' 
+                      : `opacity-0 ${isImageLeft ? '-translate-x-8' : 'translate-x-8'} invisible`
+                    }
+                  `}
+                  style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
+                >
                   <div className="w-full max-h-[400px] md:max-h-[500px] rounded-2xl overflow-hidden">
                     <img 
                       src={service.image} 
                       alt={service.title} 
-                      className="object-contain " 
+                      className="object-contain w-full h-full" 
+                      loading="lazy"
                     />
                   </div>
                 </div>
 
                 {/* Text Content */}
-                <div className={`
-                  w-full lg:w-1/2 flex flex-col justify-center 
-                  ${isImageLeft ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}
-                  transition-all duration-700 ease-out ${delayClass}
-                  ${isVisible 
-                    ? 'opacity-100 translate-x-0' 
-                    : `opacity-0 ${isImageLeft ? 'translate-x-8' : '-translate-x-8'}`
-                  }
-                `}>
+                <div 
+                  className={`
+                    w-full lg:w-1/2 flex flex-col justify-center 
+                    ${isImageLeft ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}
+                    transition-all duration-700 ease-out ${delayClass}
+                    ${isVisible 
+                      ? 'opacity-100 translate-x-0 visible' 
+                      : `opacity-0 ${isImageLeft ? 'translate-x-8' : '-translate-x-8'} invisible`
+                    }
+                  `}
+                  style={{ willChange: isVisible ? 'auto' : 'transform, opacity' }}
+                >
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 overflow-hidden">
                     {service.title}
                   </h2>

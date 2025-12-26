@@ -91,10 +91,11 @@ const Benefits = () => {
                     md:col-span-2
                     transition-all duration-700 ease-out ${delayClass}
                     ${firstRowVisible 
-                      ? 'opacity-100 translate-x-0' 
-                      : 'opacity-0 -translate-x-8'
+                      ? 'opacity-100 translate-x-0 visible' 
+                      : 'opacity-0 -translate-x-8 invisible'
                     }
                   `}
+                  style={{ willChange: firstRowVisible ? 'auto' : 'transform, opacity' }}
                 >
                   <ServiceCard {...service} />
                 </div>
@@ -117,10 +118,11 @@ const Benefits = () => {
                     ${colSpanClass}
                     transition-all duration-700 ease-out ${delayClass}
                     ${secondRowVisible 
-                      ? 'opacity-100 translate-x-0' 
-                      : 'opacity-0 translate-x-8'
+                      ? 'opacity-100 translate-x-0 visible' 
+                      : 'opacity-0 translate-x-8 invisible'
                     }
                   `}
+                  style={{ willChange: secondRowVisible ? 'auto' : 'transform, opacity' }}
                 >
                   <ServiceCard {...service} />
                 </div>
