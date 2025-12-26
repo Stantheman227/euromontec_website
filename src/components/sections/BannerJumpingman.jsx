@@ -1,5 +1,5 @@
-import React from 'react'
-import jumpingImage from '../../assets/images/jumping.jpg'
+import React from "react";
+import jumpingImage from "../../assets/images/jumping.jpg";
 
 const BannerJumpingman = () => {
   return (
@@ -18,15 +18,36 @@ const BannerJumpingman = () => {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          Bereit für den <span className="text-primary-600">Wandel</span> Ihrer Belegschaft?
+          Bereit für den <span className="text-primary-600">Wandel</span> Ihrer
+          Belegschaft?
         </h2>
         <p className="text-xl text-primary-100 mb-10 leading-relaxed">
-          Lassen Sie uns besprechen, wie unsere Arbeitnehmerüberlassungslösungen Ihrem Unternehmen beim Wachstum helfen können. 
-          Kontaktieren Sie unser Team noch heute für eine kostenlose Beratung.
+          Lassen Sie uns besprechen, wie unsere Arbeitnehmerüberlassungslösungen
+          Ihrem Unternehmen beim Wachstum helfen können. Kontaktieren Sie unser
+          Team noch heute für eine kostenlose Beratung.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button 
-            onClick={() => window.location.href = 'mailto:info@euromontec.de?subject=Anfrage%20zur%20Arbeitnehmer%C3%BCberlassung'} 
+          <button
+            onClick={() => {
+              const subject = encodeURIComponent(
+                "Terminanfrage / Rückruf"
+              );
+              const body = encodeURIComponent(`Sehr geehrte Damen und Herren,
+
+ich möchte gerne einen Termin für ein Telefonat vereinbaren, bitte rufen sie mich unter der angegebenen Telefonnummern zurück.
+
+Name: [Ihr Name]
+Firma: [Ihr Firmenname]
+Telefonnummer: [Ihre Telefonnummer]
+
+Bevorzugte Kontaktzeiten:
+- [z.B. Montag-Freitag, 9-17 Uhr]
+
+Ich freue mich auf Ihre Rückmeldung.
+
+`);
+              window.location.href = `mailto:info@euromontec.de?subject=${subject}&body=${body}`;
+            }}
             className="bg-white text-primary-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition shadow-lg"
           >
             Termin vereinbaren
@@ -37,8 +58,7 @@ const BannerJumpingman = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default BannerJumpingman
-
+export default BannerJumpingman;

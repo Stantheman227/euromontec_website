@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../../assets/images/logos/euromontec_combination-mark_black.webp'
 
 const menuItems = [
   { 
@@ -201,17 +200,20 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed w-full bg-white backdrop-blur-sm shadow-sm z-50 border-b-2 border-black">
+    <header className="fixed w-full bg-white backdrop-blur-sm shadow-sm z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="cursor-pointer">
-              <img 
-                src={logo} 
-                alt="Euromontec" 
-                className="h-[3.125rem] md:h-[3.75rem] w-auto"
-              />
+              <div className="relative">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 tracking-tight italic">
+                  <span className="font-bold text-primary-600">euro</span>montec
+                </h1>
+                <p className="absolute top-[55%] right-0 mt-1 font-mailman text-gray-900 text-lg sm:text-xl md:text-2xl">
+                  Personal
+                </p>
+              </div>
             </Link>
           </div>
           
