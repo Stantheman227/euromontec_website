@@ -34,9 +34,18 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Kontaktinformationen</h4>
             <ul className="space-y-2 text-sm">
-              <li>Email: info@euromontec.de</li>
-              <li>Phone: +49 (0) 3581 / 4391400</li>
-              <li>Address: Parkstraße 1, 02826 Görlitz </li>
+              <li className="flex">
+                <span className="w-20">Email:</span>
+                <span className="font-semibold">info@euromontec.de</span>
+              </li>
+              <li className="flex">
+                <span className="w-20">Phone:</span>
+                <span className="font-semibold">+49 (0) 3581 / 4391400</span>
+              </li>
+              <li className="flex">
+                <span className="w-20">Address:</span>
+                <span className="font-semibold">Parkstraße 1, 02826 Görlitz</span>
+              </li>
             </ul>
           </div>
         </div>

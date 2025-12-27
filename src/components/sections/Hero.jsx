@@ -26,8 +26,8 @@ const Hero = () => {
           <p className="text-6xl sm:text-7xl md:text-8xl text-white tracking-tight italic">
             <span className="font-bold text-primary-600">euro</span>montec
           </p>
-          <p className="absolute top-[55%] right-0 mt-2 font-mailman text-white text-[3rem] sm:text-[3.5rem] md:text-[4.5rem]">
-            Personal
+          <p className="absolute top-[55%] right-[-10%] mt-2 font-mailman text-white text-[3rem] sm:text-[3.5rem] md:text-[4.5rem]">
+            Personalmanagement
           </p>
         </div>
 

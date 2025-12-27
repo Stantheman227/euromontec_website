@@ -208,8 +208,8 @@ const Header = () => {
                 <p className="text-2xl md:text-3xl text-gray-900 tracking-tight italic">
                   <span className="font-bold text-primary-600">euro</span>montec
                 </p>
-                <p className="absolute top-[55%] right-0 mt-1 font-mailman text-gray-900 text-lg md:text-xl">
-                  Personal
+                <p className="absolute top-[55%] right-[-10%] mt-1 font-mailman text-gray-900 text-lg md:text-xl">
+                  Personalmanagement
                 </p>
               </div>
             </Link>

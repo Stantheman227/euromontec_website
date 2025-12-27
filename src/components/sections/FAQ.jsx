@@ -6,15 +6,15 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Wie schnell können Sie qualifizierte Handwerker vermitteln?",
-      answer: "In der Regel können wir innerhalb von 2-5 Werktagen qualifizierte Fachkräfte für ihren Betrieb bereitstellen. Die genaue Dauer hängt von der spezifischen Anforderung und Verfügbarkeit ab."
+      answer: "In der Regel können wir innerhalb von 2-5 Werktagen qualifizierte Fachkräfte für ihren Betrieb bereitstellen. Die genaue Dauer hängt von der spezifischen Anforderung, Standort und Verfügbarkeit ab."
     },
     {
-      question: "Welche Qualifikationen haben die vermittelten Mitarbeiter?",
-      answer: "Alle von uns vermittelten Mitarbeiter werden sorgfältig geprüft. Wir überprüfen ihre Kentnisse, Qualifikationen und Erfahrungen, um sicherzustellen, dass sie die passenden Mitarbeiter für die auszuführenden Tätigkeiten bekommen."
+      question: "Welche Qualifikationen haben die Mitarbeiter?",
+      answer: "Alle von uns vermittelten Mitarbeiter werden vorab sorgfältig geprüft. Wir überprüfen ihre Kentnisse, Qualifikationen und Erfahrungen, um sicherzustellen, dass sie die passenden Mitarbeiter für die auszuführenden Tätigkeiten bekommen."
     },
     {
       question: "Wie flexibel sind die Einsätze?",
-      answer: "Wir bieten maximale Flexibilität! Von kurzfristigen Einsätzen für einzelne Projekte bis hin zu langfristigen Kooperationen. Die Dauer und der Umfang werden individuell auf Ihre Bedürfnisse angepasst."
+      answer: "Wir bieten maximale Flexibilität! Von kurzfristigen Einsätzen bis hin zu langfristigen Kooperationen. Die Dauer und der Umfang werden individuell auf Ihre Bedürfnisse angepasst."
     },
     {
       question: "Welche Kosten entstehen für mich?",
@@ -22,7 +22,7 @@ const FAQ = () => {
     },
     {
       question: "Was passiert, wenn ein Mitarbeiter nicht passt?",
-      answer: "Ihre Zufriedenheit ist unser oberstes Ziel. Wir führen vorab eine Bedarfsanalyse durch und stellen sicher, dass der Mitarbeiter die passenden Fähigkeiten und Eigenschaften hat. Falls ein Mitarbeiter dennoch nicht ihren Erwartungen entsprechen sollte, tauschen wir ihn schnellstmöglich aus, ohne zusätzliche Kosten für Sie."
+      answer: "Ihre Zufriedenheit ist unser oberstes Ziel! Wir führen vorab eine Bedarfsanalyse durch und stellen sicher, dass der Mitarbeiter die passenden Fähigkeiten und Eigenschaften hat. Falls ein Mitarbeiter dennoch nicht ihren Erwartungen entsprechen sollte, tauschen wir ihn schnellstmöglich aus. Ohne zusätzliche Kosten für sie."
     },
   ]
 
