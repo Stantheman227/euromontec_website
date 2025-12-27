@@ -16,7 +16,7 @@ const Services = () => {
     {
       title: "Arbeitnehmerüberlassung",
       description:
-        "Wir vermitteln qualifizierte Fachkräfte schnell und zuverlässig. Unser Netzwerk umfasst erfahrene Handwerker und Spezialisten, die genau zu Ihren Anforderungen passen. Von der ersten Anfrage bis zur erfolgreichen Vermittlung begleiten wir Sie professionell.",
+        "Wir überlassen qualifizierte Mitarbeiter schnell und zuverlässig. Von der ersten Anfrage bis zur erfolgreichen Projektabschluss begleiten wir Sie professionell.",
       image: image1,
     },
     {

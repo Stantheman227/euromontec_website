@@ -18,8 +18,8 @@ const Benefits = () => {
           </svg>
         </div>
       ),
-      title: "Schnelle Vermittlung ohne Umschweife",
-      description: "Innerhalb von Tagen sind qualifizierte Handwerker auf der Baustelle."
+      title: "Schnelle Abwicklung ohne Umschweife",
+      description: "Innerhalb von wenigenTagen sind qualifizierte Fachkräfte am Einsatzort."
     },
     {
       icon: (
@@ -30,7 +30,7 @@ const Benefits = () => {
           </svg>
         </div>
       ),
-      title: "Geprüfte Fachkräfte mit echtem Können",
+      title: "Zuverlässige Mitarbeiter mit echtem Können",
       description: "Jeder Arbeiter wird überprüft, damit Sie wissen, wer kommt."
     },
     {

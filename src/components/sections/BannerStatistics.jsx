@@ -8,10 +8,10 @@ const BannerStatistics = () => {
   const isVisible = useIntersectionObserver(animationRef, { threshold: 0.2 });
 
   const targetValues = useMemo(() => ({
-    projects: 500,
-    placements: 1200,
-    experience: 15,
-    timeSavings: 80,
+    projects: 100,
+    placements: 200,
+    experience: 500,
+    timeSavings: 10,
   }), []);
 
   const durations = useMemo(() => ({
@@ -28,22 +28,22 @@ const BannerStatistics = () => {
 
   const stats = [
     {
-      headline: "Erfolgreiche Projekte",
+      headline: "Zufriedene Kunden",
       value: counters.projects,
       suffix: "+",
     },
     {
-      headline: "Zufrieden Vermittelte",
+      headline: "Erfolgreiche Projekte",
       value: counters.placements,
       suffix: "+",
     },
     {
-      headline: "Branchenerfahrung",
+      headline: "Zufriedene Mitarbeiter",
       value: counters.experience,
       suffix: "+",
     },
     {
-      headline: "Zeitersparnis",
+      headline: "Branchenerfahrung",
       value: counters.timeSavings,
       suffix: "+",
     },
