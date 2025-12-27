@@ -69,10 +69,10 @@ const Benefits = () => {
   ]
 
   return (
-    <section id="benefits" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-100 overflow-x-hidden">
+    <section id="benefits" className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-200 overflow-x-hidden">
       <div className="">
         <div className="text-left mb-10 md:mb-12 gap-4 md:gap-4 text-center">
-          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6"> Für Ihren Erfolg </p>
+          <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wider mb-4 md:mb-6"> Für gemeinsamen Erfolg </p>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">Wir sorgen für Ihre <span className="text-primary-600">Zufriedenheit</span> mit diesen <span className="text-primary-600">Vorteilen</span></h2> 
         </div>
         

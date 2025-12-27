@@ -36,7 +36,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 w-full bg-gray-100 overflow-x-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 w-full bg-gray-200 overflow-x-hidden"
     >
       <div className="mx-auto">
         <div className="text-left mb-10 md:mb-12 gap-4 md:gap-4 text-center">

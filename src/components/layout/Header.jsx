@@ -12,6 +12,19 @@ const menuItems = [
       { itemName: 'Arbeitnehmerüberlassung mit Übernahmeoption', route: '/uebernahmeoption', htmlTag: 'Link' }
     ]
   },
+  { 
+    itemName: 'Fachbereiche', 
+    route: '#', 
+    htmlTag: 'a',
+    submenu: [
+      { itemName: 'Elektrotechnik', route: '/fachbereiche/elektrotechnik', htmlTag: 'Link' },
+      { itemName: 'Metallbau / Schlosserarbeiten', route: '/fachbereiche/metallbau-schlosserarbeiten', htmlTag: 'Link' },
+      { itemName: 'Schweißtechnik', route: '/fachbereiche/schweisstechnik', htmlTag: 'Link' },
+      { itemName: 'Zerspanungstechnik / CNC', route: '/fachbereiche/zerspanungstechnik-cnc', htmlTag: 'Link' },
+      { itemName: 'Maschinenbau / Industriemechanik', route: '/fachbereiche/maschinenbau-industriemechanik', htmlTag: 'Link' },
+      { itemName: 'Produktion / Fertigung', route: '/fachbereiche/produktion-fertigung', htmlTag: 'Link' }
+    ]
+  },
   { itemName: 'Über uns', route: '/ueber-uns', htmlTag: 'Link' },
   { itemName: 'Kontakt', route: '/kontakt', htmlTag: 'Link' }
 ]
@@ -113,7 +126,7 @@ const Header = () => {
                 <div 
                   className={`absolute left-0 top-[calc(100%)] w-56 bg-white rounded-b-lg shadow-lg border border-gray-100 overflow-hidden z-50 transition-all duration-500 ease ${
                     isDropdownOpen 
-                      ? 'opacity-100 max-h-[200px] pointer-events-auto' 
+                      ? 'opacity-100 max-h-[400px] pointer-events-auto' 
                       : 'opacity-0 max-h-0 pointer-events-none'
                   }`}
                   onMouseEnter={() => handleMouseEnter(index)}
@@ -169,7 +182,7 @@ const Header = () => {
                 <div 
                   className={`absolute left-0 top-[calc(100%+0.5rem)] w-56 bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden z-50 transition-all duration-500 ease ${
                     isDropdownOpen 
-                      ? 'opacity-100 max-h-[200px] pointer-events-auto' 
+                      ? 'opacity-100 max-h-[400px] pointer-events-auto' 
                       : 'opacity-0 max-h-0 pointer-events-none'
                   }`}
                   onMouseEnter={() => handleMouseEnter(index)}
