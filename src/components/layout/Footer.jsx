@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <h4 className="text-white font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition">Arbeitnehmerüberlassung</a></li>
               <li><a href="#" className="hover:text-white transition">Personalvermittlung</a></li>
