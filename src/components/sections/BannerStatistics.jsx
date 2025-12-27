@@ -8,9 +8,9 @@ const BannerStatistics = () => {
   const isVisible = useIntersectionObserver(animationRef, { threshold: 0.2 });
 
   const targetValues = useMemo(() => ({
-    projects: 100,
-    placements: 200,
-    experience: 500,
+    projects: 150,
+    placements: 250,
+    experience: 600,
     timeSavings: 10,
   }), []);
 

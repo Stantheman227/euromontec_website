@@ -6,38 +6,37 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">Euromontec</h3>
+            <h3 className="text-white text-xl font-bold mb-4">Euromontec - Personalmanagement GmbH</h3>
             <p className="text-sm leading-relaxed">
-              Your trusted partner for flexible workforce solutions and employee leasing services.
+                Ihr zuverlässiger Partner für flexible Mitarbeiterüberlassung und Personalvermittlung im Handwerk.
             </p>
           </div>
           
           <div>
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">Temporary Staffing</a></li>
-              <li><a href="#" className="hover:text-white transition">Contract-to-Hire</a></li>
-              <li><a href="#" className="hover:text-white transition">Project Teams</a></li>
-              <li><a href="#" className="hover:text-white transition">Consulting</a></li>
+              <li><a href="#" className="hover:text-white transition">Arbeitnehmerüberlassung</a></li>
+              <li><a href="#" className="hover:text-white transition">Personalvermittlung</a></li>
+              <li><a href="#" className="hover:text-white transition">Arbeitnehmerüberlassung mit Übernahmeoption</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <h4 className="text-white font-semibold mb-4">Unternehmen</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition">Careers</a></li>
+              <li><a href="#" className="hover:text-white transition">Über uns</a></li>
+              <li><a href="#" className="hover:text-white transition">Karriere</a></li>
               <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <li><a href="#" className="hover:text-white transition">Kontakt</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
+            <h4 className="text-white font-semibold mb-4">Kontaktinformationen</h4>
             <ul className="space-y-2 text-sm">
-              <li>Email: [email]</li>
-              <li>Phone: [phone_number]</li>
-              <li>Address: [address]</li>
+              <li>Email: info@euromontec.de</li>
+              <li>Phone: +49 (0) 3581 / 4391400</li>
+              <li>Address: Parkstraße 1, 02826 Görlitz </li>
             </ul>
           </div>
         </div>

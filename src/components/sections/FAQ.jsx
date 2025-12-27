@@ -6,28 +6,24 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Wie schnell können Sie qualifizierte Handwerker vermitteln?",
-      answer: "In der Regel können wir innerhalb von 2-5 Werktagen qualifizierte Fachkräfte für Ihre Baustelle bereitstellen. Die genaue Dauer hängt von der spezifischen Anforderung und Verfügbarkeit ab."
+      answer: "In der Regel können wir innerhalb von 2-5 Werktagen qualifizierte Fachkräfte für ihren Betrieb bereitstellen. Die genaue Dauer hängt von der spezifischen Anforderung und Verfügbarkeit ab."
     },
     {
-      question: "Welche Qualifikationen haben die vermittelten Handwerker?",
-      answer: "Alle von uns vermittelten Handwerker werden sorgfältig geprüft. Wir überprüfen ihre Qualifikationen, Referenzen und Erfahrungen, um sicherzustellen, dass sie den höchsten Standards entsprechen."
+      question: "Welche Qualifikationen haben die vermittelten Mitarbeiter?",
+      answer: "Alle von uns vermittelten Mitarbeiter werden sorgfältig geprüft. Wir überprüfen ihre Kentnisse, Qualifikationen und Erfahrungen, um sicherzustellen, dass sie die passenden Mitarbeiter für die auszuführenden Tätigkeiten bekommen."
     },
     {
       question: "Wie flexibel sind die Einsätze?",
-      answer: "Wir bieten maximale Flexibilität - von kurzfristigen Einsätzen für einzelne Projekte bis hin zu langfristigen Kooperationen. Die Dauer und der Umfang werden individuell auf Ihre Bedürfnisse angepasst."
+      answer: "Wir bieten maximale Flexibilität! Von kurzfristigen Einsätzen für einzelne Projekte bis hin zu langfristigen Kooperationen. Die Dauer und der Umfang werden individuell auf Ihre Bedürfnisse angepasst."
     },
     {
       question: "Welche Kosten entstehen für mich?",
       answer: "Unsere Preise sind transparent und werden individuell auf Ihr Projekt zugeschnitten. Kontaktieren Sie uns für ein unverbindliches Angebot, das auf Ihre spezifischen Anforderungen zugeschnitten ist."
     },
     {
-      question: "Was passiert, wenn ein Handwerker nicht passt?",
-      answer: "Ihre Zufriedenheit ist unser oberstes Ziel. Falls ein Handwerker nicht Ihren Erwartungen entspricht, tauschen wir ihn schnellstmöglich aus, ohne zusätzliche Kosten für Sie."
+      question: "Was passiert, wenn ein Mitarbeiter nicht passt?",
+      answer: "Ihre Zufriedenheit ist unser oberstes Ziel. Wir führen vorab eine Bedarfsanalyse durch und stellen sicher, dass der Mitarbeiter die passenden Fähigkeiten und Eigenschaften hat. Falls ein Mitarbeiter dennoch nicht ihren Erwartungen entsprechen sollte, tauschen wir ihn schnellstmöglich aus, ohne zusätzliche Kosten für Sie."
     },
-    {
-      question: "Bieten Sie auch langfristige Personalvermittlung an?",
-      answer: "Ja, wir unterstützen Sie sowohl bei kurzfristigen Projekten als auch bei langfristigen Personalbedarfen. Wir entwickeln maßgeschneiderte Lösungen, die zu Ihrem Unternehmen passen."
-    }
   ]
 
   const toggleFAQ = (index) => {
