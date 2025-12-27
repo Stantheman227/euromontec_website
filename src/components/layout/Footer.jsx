@@ -6,9 +6,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">Euromontec - Personalmanagement GmbH</h3>
+            <h3 className="text-white text-xl font-bold mb-4">Euromontec Personalmanagement GmbH</h3>
             <p className="text-sm leading-relaxed">
-                Ihr zuverlässiger Partner für flexible Mitarbeiterüberlassung und Personalvermittlung im Handwerk.
+                Ihr zuverlässiger Partner für flexible Mitarbeiterüberlassungen und Personalvermittlungen in der Industrie und Handwerk.
             </p>
           </div>
           
@@ -26,8 +26,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition">Über uns</a></li>
               <li><a href="#" className="hover:text-white transition">Karriere</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition">Kontakt</a></li>
+              <li><a href="#" className="hover:text-white transition">Impressum</a></li>
             </ul>
           </div>
           

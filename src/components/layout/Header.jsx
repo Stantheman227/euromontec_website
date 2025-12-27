@@ -17,11 +17,9 @@ const menuItems = [
     route: '#', 
     htmlTag: 'a',
     submenu: [
-      { itemName: 'Schweißtechnik', route: '/fachbereiche/schweisstechnik', htmlTag: 'Link' },
-      { itemName: 'Metallbau / Schlosserarbeiten', route: '/fachbereiche/metallbau-schlosserarbeiten', htmlTag: 'Link' },
-      { itemName: 'Elektrotechnik', route: '/fachbereiche/elektrotechnik', htmlTag: 'Link' },
-      { itemName: 'Zerspanungstechnik / CNC', route: '/fachbereiche/zerspanungstechnik-cnc', htmlTag: 'Link' },
+      { itemName: 'Schweißtechnik / Metallbau', route: '/fachbereiche/schweisstechnik-metallbau', htmlTag: 'Link' },
       { itemName: 'Maschinenbau / Industriemechanik', route: '/fachbereiche/maschinenbau-industriemechanik', htmlTag: 'Link' },
+      { itemName: 'Elektrotechnik', route: '/fachbereiche/elektrotechnik', htmlTag: 'Link' },
       { itemName: 'Produktion / Fertigung', route: '/fachbereiche/produktion-fertigung', htmlTag: 'Link' }
     ]
   },

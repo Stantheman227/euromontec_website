@@ -5,7 +5,7 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "Wie schnell können Sie qualifizierte Handwerker vermitteln?",
+      question: "Wie schnell können sie qualifizierte Fachkräfte zur Verfügung stellen?",
       answer: "In der Regel können wir innerhalb von 2-5 Werktagen qualifizierte Fachkräfte für ihren Betrieb bereitstellen. Die genaue Dauer hängt von der spezifischen Anforderung, Standort und Verfügbarkeit ab."
     },
     {
