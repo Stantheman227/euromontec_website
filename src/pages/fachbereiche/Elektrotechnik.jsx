@@ -1,20 +1,32 @@
 import React from 'react'
+import image11 from '../../assets/images/image11.jpg'
 
 const Elektrotechnik = () => {
   return (
     <div className="pt-16 min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Elektrotechnik
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Qualifizierte Elektrotechniker für Installation, Wartung und Instandhaltung elektrischer Anlagen.
-          </p>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] max-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={image11}
+            alt="Elektrotechnik"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
-        {/* Content Section */}
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Elektrotechnik
+          </h1>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none">
             <p className="text-gray-700 leading-relaxed mb-6">

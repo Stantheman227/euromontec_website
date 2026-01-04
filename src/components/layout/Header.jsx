@@ -30,6 +30,7 @@ const menuItems = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState(null)
 
   const handleMouseEnter = (index) => {
     if (menuItems[index].submenu) {
@@ -39,6 +40,10 @@ const Header = () => {
 
   const handleMouseLeave = () => {
     setOpenDropdown(null)
+  }
+
+  const toggleMobileSubmenu = (index) => {
+    setOpenMobileSubmenu(openMobileSubmenu === index ? null : index)
   }
 
   const renderMenuItem = (item, index, isMobile = false) => {
@@ -244,8 +249,117 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-3">
-            {menuItems.map((item, index) => renderMenuItem(item, index, true))}
+          <div className="md:hidden py-4 space-y-2">
+            {menuItems.map((item, index) => {
+              const hasSubmenu = item.submenu && item.submenu.length > 0
+              const isSubmenuOpen = openMobileSubmenu === index
+
+              if (hasSubmenu) {
+                return (
+                  <div
+                    key={item.itemName}
+                    className="rounded-lg overflow-hidden transition-all duration-200"
+                  >
+                    <button
+                      onClick={() => toggleMobileSubmenu(index)}
+                      className="w-full px-4 py-3 text-left flex items-center justify-between bg-white hover:bg-gray-50 transition-colors duration-200"
+                    >
+                      <span className="text-base font-semibold text-gray-700 pr-4">
+                        {item.itemName}
+                      </span>
+                      <div className="flex-shrink-0">
+                        <svg
+                          className={`w-5 h-5 text-primary-600 transition-transform duration-200 ${
+                            isSubmenuOpen ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isSubmenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <div className="bg-gray-50 border-t border-gray-200">
+                        {item.submenu.map((subItem, subIndex) => {
+                          const isLastItem = subIndex === item.submenu.length - 1
+                          const separatorClass = isLastItem ? '' : 'border-b border-gray-200'
+                          
+                          if (subItem.htmlTag === 'Link') {
+                            return (
+                              <Link
+                                key={subItem.itemName}
+                                to={subItem.route}
+                                onClick={() => {
+                                  setIsMenuOpen(false)
+                                  setOpenMobileSubmenu(null)
+                                }}
+                                className={`flex items-start px-6 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition ${separatorClass}`}
+                              >
+                                <span className="mr-2 flex-shrink-0 mt-0.5">•</span>
+                                <span className="flex-1">{subItem.itemName}</span>
+                              </Link>
+                            )
+                          } else if (subItem.htmlTag === 'a') {
+                            return (
+                              <a
+                                key={subItem.itemName}
+                                href={subItem.route}
+                                onClick={() => {
+                                  setIsMenuOpen(false)
+                                  setOpenMobileSubmenu(null)
+                                }}
+                                className={`flex items-start px-6 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-100 transition ${separatorClass}`}
+                              >
+                                <span className="mr-2 flex-shrink-0 mt-0.5">•</span>
+                                <span className="flex-1">{subItem.itemName}</span>
+                              </a>
+                            )
+                          }
+                          return null
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )
+              } else {
+                // Regular menu item without submenu
+                if (item.htmlTag === 'Link') {
+                  return (
+                    <Link
+                      key={item.itemName}
+                      to={item.route}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                    >
+                      {item.itemName}
+                    </Link>
+                  )
+                } else if (item.htmlTag === 'a') {
+                  return (
+                    <a
+                      key={item.itemName}
+                      href={item.route}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+                    >
+                      {item.itemName}
+                    </a>
+                  )
+                }
+                return null
+              }
+            })}
           </div>
         )}
       </nav>
