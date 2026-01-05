@@ -10,7 +10,7 @@ const About = () => {
             Über uns
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Lernen Sie Euromontec kennen. Ihr Partner für Personalvermittlung und Arbeitnehmerüberlassung in der Industrie und Handwerk.
+            Lernen Sie Euromontec kennen. Ihr Partner für Jobs & Arbeitnehmerüberlassung in der Industrie und Handwerk.
           </p>
         </div>
 

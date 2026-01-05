@@ -9,6 +9,7 @@ import Arbeitnehmerüberlassung from './pages/leistungen/Arbeitnehmerüberlassun
 import Personalvermittlung from './pages/leistungen/Personalvermittlung'
 import Uebernahmeoption from './pages/leistungen/Uebernahmeoption'
 import About from './pages/About'
+import Impressum from './pages/Impressum'
 import SchweisstechnikMetallbau from './pages/fachbereiche/SchweisstechnikMetallbau'
 import MaschinenbauIndustriemechanik from './pages/fachbereiche/MaschinenbauIndustriemechanik'
 import Elektrotechnik from './pages/fachbereiche/Elektrotechnik'
@@ -26,6 +27,7 @@ function App() {
         <Route path="/personalvermittlung" element={<Personalvermittlung />} />
         <Route path="/uebernahmeoption" element={<Uebernahmeoption />} />
         <Route path="/ueber-uns" element={<About />} />
+        <Route path="/impressum" element={<Impressum />} />
         <Route path="/fachbereiche/schweisstechnik-metallbau" element={<SchweisstechnikMetallbau />} />
         <Route path="/fachbereiche/maschinenbau-industriemechanik" element={<MaschinenbauIndustriemechanik />} />
         <Route path="/fachbereiche/elektrotechnik" element={<Elektrotechnik />} />
