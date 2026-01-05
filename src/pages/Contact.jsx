@@ -28,14 +28,16 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Telefon</h3>
-                <p>+49 (0) XXX XXX XXX</p>
+                <p>+49 (0) 3581 / 4391400
+                </p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Adresse</h3>
                 <p>
                   Euromontec GmbH<br />
-                  Musterstraße 123<br />
-                  12345 Musterstadt
+                  Parkstraße 1<br />
+                  02826 Görlitz
+
                 </p>
               </div>
             </div>
