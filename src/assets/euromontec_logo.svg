@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 380">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2-2" data-name="Layer 2">
+    <g transform="translate(-34.5, 38.5)">
+      <path d="M506.28,126.72l-34.8,5.2v-64.07l-5.8.84-79.75,11.92-11.6,1.73v33.34l-34.8,5.2-11.6,1.73v61.23h11.6v-57.1l34.8-5.21v62.31h29v-72.5l-5.8.87-11.6,1.73v-27.48l79.75-11.93v58.24l-11.6,1.73-11.6,1.73v47.6h29v-46.07l34.8-5.21v51.27h5.8v-58l-5.8.87ZM397.52,118.08v59.97h-11.6v-58.24l11.6-1.73ZM465.68,178.05h-11.6v-37.67l11.6-1.73v39.4Z"/>
+      <rect x="414.2" y="82.35" width="11.6" height="232" transform="translate(618.35 -221.65) rotate(90)"/>
+    </g>
+    <rect id="Safezone" class="cls-1" width="840" height="380"/>
+  </g>
+</svg>
