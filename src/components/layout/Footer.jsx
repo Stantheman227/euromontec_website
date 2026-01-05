@@ -28,6 +28,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition">Über uns</a></li>
               <li><a href="#" className="hover:text-white transition">Karriere</a></li>
               <li><Link to="/impressum" className="hover:text-white transition">Impressum</Link></li>
+              <li><Link to="/datenschutz" className="hover:text-white transition">Datenschutz</Link></li>
             </ul>
           </div>
           

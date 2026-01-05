@@ -19,7 +19,7 @@ const Impressum = () => {
             <p className="mb-4">02826 Görlitz</p>
             
             <p className="mb-2">Handelsregister: HRB 47350</p>
-            <p className="mb-4">Registergericht: Dresden</p>
+            <p className="mb-4">Registergericht: Amtsgericht Dresden</p>
           </section>
 
           <section>
