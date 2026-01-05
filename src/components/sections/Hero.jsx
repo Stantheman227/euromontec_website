@@ -33,10 +33,37 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button className="bg-white text-gray-900 px-10 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100">
+          <button
+            onClick={() => {
+              const subject = encodeURIComponent(
+                "Terminanfrage / Rückruf"
+              );
+              const body = encodeURIComponent(`Sehr geehrte Damen und Herren,
+
+ich möchte gerne einen Termin für ein Telefonat vereinbaren, bitte rufen sie mich unter der angegebenen Telefonnummern zurück.
+
+Name: [Ihr Name]
+Firma: [Ihr Firmenname]
+Telefonnummer: [Ihre Telefonnummer]
+
+Bevorzugte Kontaktzeiten:
+- [z.B. Montag-Freitag, 9-17 Uhr]
+
+Ich freue mich auf Ihre Rückmeldung.
+
+`);
+              window.location.href = `mailto:info@euromontec.de?subject=${subject}&body=${body}`;
+            }}
+            className="bg-white text-gray-900 px-10 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100"
+          >
             Für Jobsuchende
           </button>
-          <button className="bg-primary-600 text-white px-10 py-5 rounded-lg text-xl font-semibold hover:bg-primary-700 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100 ">
+          <button onClick={() => {
+              const benefitsSection = document.getElementById("services");
+              if (benefitsSection) {
+                benefitsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }} className="bg-primary-600 text-white px-10 py-5 rounded-lg text-xl font-semibold hover:bg-primary-700 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 w-full sm:w-auto min-w-[250px] opacity-60 hover:opacity-100 ">
             Für Unternehmen
           </button>
         </div>
