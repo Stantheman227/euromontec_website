@@ -53,7 +53,7 @@ const Benefits = () => {
         </div>
       ),
       title: "Sicherheit & Qualität",
-      description: "Höchste Sicherheitsstandards und Qualitätskontrolle bei allen Projekten."
+      description: "Höchste Sicherheitsstandards und Qualität bei allen Projekten."
     },
     {
       icon: (

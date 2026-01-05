@@ -11,7 +11,7 @@ const Contact = () => {
             Kontakt
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Nehmen Sie Kontakt mit uns auf – wir beantworten Ihre Fragen rund um Jobs & Personalvermittlung im Handwerk.
+            Nehmen Sie Kontakt mit uns auf. wir beantworten Ihre Fragen rund um Jobs & Arbeitnehmerüberlassung in der Industrie und Handwerk.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Adresse</h3>
                 <p>
-                  Euromontec GmbH<br />
+                  Euromontec Personalmanagement GmbH<br />
                   Parkstraße 1<br />
                   02826 Görlitz
 

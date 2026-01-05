@@ -50,7 +50,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-8 text-center text-sm">
-          <p>&copy; 2025 Euromontec. All rights reserved.</p>
+          <p>&copy; 2025 Euromontec Personalmanagement GmbH. All rights reserved.</p>
         </div>
       </div>
     </footer>

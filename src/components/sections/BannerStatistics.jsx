@@ -10,7 +10,7 @@ const BannerStatistics = () => {
   const targetValues = useMemo(() => ({
     projects: 150,
     placements: 250,
-    experience: 600,
+    experience: 700,
     timeSavings: 10,
   }), []);
 
@@ -45,7 +45,7 @@ const BannerStatistics = () => {
     {
       headline: "Branchenerfahrung",
       value: counters.timeSavings,
-      suffix: "+",
+      suffix: "Jahre +",
     },
   ];
 
