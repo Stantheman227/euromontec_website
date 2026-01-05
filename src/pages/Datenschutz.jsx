@@ -144,11 +144,11 @@ const Datenschutz = () => {
             <p className="mb-4">
               Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
             </p>
-            <p className="mb-2">Staff Heroes Consulting GmbH</p>
-            <p className="mb-2">Irenenstr. 21</p>
-            <p className="mb-2">10317 Berlin</p>
-            <p className="mb-2">Telefon: +49 (0) 56544849</p>
-            <p className="mb-4">E-Mail: gerriet.cornelius@staff-heco.de</p>
+            <p className="mb-2">Euromontec Personalmanagement GmbH</p>
+            <p className="mb-2">Parkstraße 1</p>
+            <p className="mb-2">02826 Görlitz</p>
+            <p className="mb-2">Telefon: +49 (0) 3581 / 4391400</p>
+            <p className="mb-4">E-Mail: info@euromontec.de</p>
             <p className="mb-4">
               Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über
               die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.)
