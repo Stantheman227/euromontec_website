@@ -3,7 +3,7 @@ import image11 from '../../assets/images/image11.jpg'
 
 const Uebernahmeoption = () => {
   return (
-    <div className="pt-16 min-h-screen bg-white">
+    <div className="pt-16 min-h-screen bg-gray-200">
       {/* Hero Section */}
       <section className="relative h-[60vh] max-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
