@@ -12,8 +12,8 @@ const Benefits = () => {
   const services = [
     {
       icon: (
-        <div className="w-14 h-14 flex items-center justify-center">
-          <svg className="w-14 h-14 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <div className="w-14 h-14 rounded-full border-2 border-gray-900 flex items-center justify-center">
+          <svg className="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>

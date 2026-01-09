@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import logo from '../../assets/em_logo.svg'
 const menuItems = [
   { 
     itemName: 'Unsere Leistungen', 
@@ -218,7 +218,8 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex flex-row items-center gap-2">
+          <img src={logo} alt="Euromontec" className="w-10 h-10" loading="lazy" decoding="async" fetchPriority="high"/>
             <Link to="/" className="cursor-pointer">
               <div className="relative">
                 <p className="text-2xl md:text-3xl text-gray-900 tracking-tight italic">
