@@ -1,6 +1,7 @@
 # Euromontec Website
 
-A clean, modern website for Euromontec employee leasing services built with React and Tailwind CSS.
+Website für die Euromontec Personalmanagement GmbH.
+Gebaut mit React, Vite & Tailwind.
 
 ## Features
 
